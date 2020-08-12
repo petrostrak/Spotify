@@ -1,3 +1,44 @@
+<?php 
+
+function sanitizeFormUsername($inputText){
+    $inputText = strip_tags($inputText); // removes all html elements
+    $inputText = str_replace(" ", "", $inputText); // removes spacing
+    return $inputText;
+}
+
+function sanitizeFormString($inputText){
+    $inputText = sanitizeFormUsername($inputText);
+    $inputText = ucfirst(strtolower($inputText)); // first we convert the string value toLowerCase with strtoLower and then only the first letter to upperCase with ucfirst
+    return $inputText;
+}
+
+function sanitizeFormPassword($inputText){
+    $inputText = strip_tags($inputText);
+    return $inputText;
+}
+
+if (isset($_POST['loginButton'])) {
+    //echo "login button was pressed";
+}
+
+if (isset($_POST['registerButton'])) {
+    $username = sanitizeFormUsername($_POST['username']);
+
+    $firstName = sanitizeFormString($_POST['firstName']);
+
+    $lastName = sanitizeFormString($_POST['lastName']);
+
+    $email = sanitizeFormString($_POST['email']);
+
+    $email2 = sanitizeFormString($_POST['email2']);
+
+    $password = sanitizeFormPassword($_POST['password']);
+
+    $password2 = sanitizeFormPassword($_POST['password2']);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +63,10 @@
 
         <form id="registerForm" action="register.php" method="POST">
             <h2>Create your free account</h2>
+            <p>
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="e.g. Pit_trak" required>
+            </p>
             <p>
                 <label for="firstName">First name</label>
                 <input id="firstName" name="firstName" type="text" placeholder="e.g. Petros" required>
