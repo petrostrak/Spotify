@@ -24,11 +24,23 @@ else {
     <div id="nowPlayingBarContainer">
         <div id="nowPlayingBar">
             <div id="nowPlayingLeft">
-
+                <div class="content">
+                    <span class="albumLink">
+                        <img class="albumArtwork" src="" alt="">
+                    </span>
+                    <div class="trackInfo">
+                        <span class="trackName">
+                            <span></span>
+                        </span>
+                        <span class="artistName">
+                            <span></span>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div id="nowPlayingCenter">
                 <div class="content playerControls">
-                    <div class="button">
+                    <div class="buttons">
                         <button class="controlButton shuffle" title="Shuffle button">
                             <img src="assets/images/icons/shuffle.png" alt="Shuffle">
                         </button>
