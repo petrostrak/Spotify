@@ -21,6 +21,8 @@ function getInputValue($name)
 <head>
 	<title>Welcome to Slotify!</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/register.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="assets/js/register.js"></script>
 </head>
 
 <body>
@@ -41,6 +43,9 @@ function getInputValue($name)
 
 					<button type="submit" name="loginButton">LOG IN</button>
 
+					<div class="hasAccountText">
+						<span id="hideLogin">Don't have and account yet?Sign up here</span>
+					</div>
 				</form>
 
 
@@ -93,7 +98,10 @@ function getInputValue($name)
 					</p>
 
 					<button type="submit" name="registerButton">SIGN UP</button>
-
+					
+					<div class="hasAccountText">
+						<span id="hideRegister">Already have an account? Log in here</span>
+					</div>
 				</form>
 
 			</div>
