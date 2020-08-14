@@ -143,3 +143,16 @@ html, body {
 	width: 125px;
 }
 
+#topContainer {
+    min-height: 100%;
+    width: 100%;
+}
+
+#navBarContainer {
+    background-color: #000000;
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
