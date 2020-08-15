@@ -8,7 +8,7 @@
 ?>
 
 <script>
-    console.log(<?php echo $jsonArray; ?>);
+    currentPlaylist = <?php echo $jsonArray; ?>; 
 </script>
 
 <div id="nowPlayingBarContainer">
