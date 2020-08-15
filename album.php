@@ -51,21 +51,19 @@ $artist = $album->getArtist();
 						<span class='artistName'>" . $albumArtist->getName() . "</span>
 					</div>
 
-
+					<div class='trackOptions'>
+						<img class='optionsButton' src='assets/images/icons/more.png'>
+					</div>
+					<div class='trackDuration'>
+						<span class='ducation'>". $albumSong->getDuration() ."</span>
+					  </div>
 				</li>";
 
 			$i = $i + 1;
-
-
-
 		}
-
 		?>
-
-
-
 	</ul>
-</div>
+</div>	
 
 
 <?php include("includes/footer.php"); ?>
