@@ -1,5 +1,6 @@
 var currentlyPlaying = [];
 var audioElement;
+var mouseDown = false;
 
 function formatTime(seconds) {
     var time = Math.round(seconds)
@@ -9,6 +10,13 @@ function formatTime(seconds) {
     return mins + ":" + extraZero + secs
 }
 
+function updateTimeProgressBar(audio) {
+    $(".progressTime.current").text(formatTime(audio.currentTime))
+    $(".progressTime.remaining").text(formatTime(audio.duration - audio.currentTime))
+    var progress = audio.currentTime / audio.duration * 100
+    $(".progress").css("width", progress + "%")
+}
+
 function Audio() {
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
@@ -16,6 +24,12 @@ function Audio() {
     this.audio.addEventListener("canplay", function() {
         $(".progressTime.remaining").text(formatTime(this.duration))
     })
+
+    this.audio.addEventListener("timeupdate", function() {
+        if(this.duration) {
+            updateTimeProgressBar(this)
+        }
+    }) 
 
     this.setTrack = function(track) {
         this.currentlyPlaying = track
@@ -28,5 +42,9 @@ function Audio() {
 
     this.pause = function() {
         this.audio.pause();
+    }
+
+    this.setTime = function(seconds) {
+        this.audio.currentTime = seconds
     }
 }
