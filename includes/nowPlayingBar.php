@@ -14,6 +14,11 @@
         setTrack(currentPlaylist[0], currentPlaylist, false);
         updateVolumeProgressBar(audioElement.audio)
 
+        // prevent highlighting the elements when draging
+        $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+            e.preventDefault()
+        })
+
         // drag the progress bar
         $(".playbackBar .progressBar").mousedown(function() {
             mouseDown = true
