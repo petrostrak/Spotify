@@ -15,7 +15,22 @@
     }); 
 
     function setTrack(trackId, newPlaylist, play) {
-        audioElement.setTrack("assets/music/prodigy/01 - Smack My Bitch Up.mp3");
+        // AJAX call
+        $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+            var track = JSON.parse(data)
+            $(".trackName span").text(track.title)
+            $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+                var artist = JSON.parse(data)
+                $(".artistName span").text(artist.name)
+            })
+            $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+                var album = JSON.parse(data)
+                $(".albumLink img").attr("src", album.artworkPath)
+            })
+            audioElement.setTrack(track.path);
+            audioElement.play();
+        })
+
         if(play){
             audioElement.play();
         }
@@ -39,14 +54,14 @@
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img class="albumArtwork" src="https://m.media-amazon.com/images/M/MV5BMmUzYTNkMzctMmFjNS00YjFlLTkxNjYtZGYzMWM4YTlkYTFhXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_.jpg" alt="">
+                    <img class="albumArtwork" src="" alt="">
                 </span>
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span>Fortune Faded</span>
+                        <span></span>
                     </span>
                     <span class="artistName">
-                        <span>Red Hot Chili Peppers</span>
+                        <span></span>
                     </span>
                 </div>
             </div>
