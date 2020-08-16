@@ -153,7 +153,6 @@
                 $(".albumLink img").attr("src", album.artworkPath)
             })
             audioElement.setTrack(track);
-            playSong();
         })
 
         if(play){

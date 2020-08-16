@@ -1,4 +1,4 @@
-var currentlyPlaying = [];
+// var currentlyPlaying = [];
 var currentPlaylist = [];
 var shufflePlaylist = [];
 var tempPlaylist = [];
@@ -7,6 +7,15 @@ var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
+var userLoggedIn;
+
+function openPage(url) {
+    if(url.indexOf("?") == -1) { // -1 means that the search returns false (didn't find a match) result
+        url = url + "?"
+    }
+    var encodedUrl = encodeURI(url + "&userLoggedIn" + userLoggedIn)
+    $("#mainContent").load(encodedUrl)
+}
 
 function formatTime(seconds) {
     var time = Math.round(seconds)
