@@ -1,4 +1,3 @@
-// var currentlyPlaying = [];
 var currentPlaylist = [];
 var shufflePlaylist = [];
 var tempPlaylist = [];
