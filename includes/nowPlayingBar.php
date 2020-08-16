@@ -83,13 +83,12 @@
     }
 
     function previousSong() {
-        if(currentIndex == currentPlaylist.length -1) {
-            currentIndex = 0
+        if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+            audioElement.setTime(0)
         } else {
             currentIndex--
+            setTrack(currentPlaylist[currentIndex], currentPlaylist, true)
         }
-        var trackToPlay = currentPlaylist[currentIndex]
-        setTrack(trackToPlay, currentPlaylist, true)
     }
 
     function setRepeat() {
