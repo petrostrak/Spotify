@@ -27,7 +27,7 @@
                 var album = JSON.parse(data)
                 $(".albumLink img").attr("src", album.artworkPath)
             })
-            audioElement.setTrack(track.path);
+            audioElement.setTrack(track);
             audioElement.play();
         })
 
@@ -37,6 +37,9 @@
     }
 
     function playSong() {
+        if(audioElement.audio.currentTime == 0) {
+            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
+        }
         $(".controlButton.play").hide()
         $(".controlButton.pause").show()
         audioElement.play()
