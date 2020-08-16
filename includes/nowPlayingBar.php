@@ -93,8 +93,14 @@
 
     function setRepeat() {
         repeat = !repeat
-        var imageName = (repeat) ? "repeat-active.png" : "repeat.png"
+        var imageName = repeat ? "repeat-active.png" : "repeat.png"
         $(".controlButton.repeat img").attr("src", "assets/images/icons/" + imageName)
+    }
+
+    function setMute() {
+        audioElement.audio.muted = !audioElement.audio.muted
+        var imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png"
+        $(".controlButton.volume img").attr("src", "assets/images/icons/" + imageName)
     }
 
     function setTrack(trackId, newPlaylist, play) {
@@ -189,7 +195,7 @@
         </div>
         <div id="nowPlayingRight">
             <div class="volumeBar">
-                <button class="controlButton volume" title="Volume button">
+                <button class="controlButton volume" title="Volume button" onclick="setMute()">
                     <img src="assets/images/icons/volume.png" alt="Volume">
                 </button>
                 <div class="progressBar">
