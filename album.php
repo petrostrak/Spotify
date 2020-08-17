@@ -67,3 +67,10 @@ $artist = $album->getArtist();
 		</script>
 	</ul>
 </div>	
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<div class="item">Add to playlist</div>
+	<div class="item">Copy link to clickboard</div>
+	<div class="item">Share</div>
+</nav>
