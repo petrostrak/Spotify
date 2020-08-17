@@ -42,7 +42,8 @@ $owner = new User($con, $playlist->getOwner());
 						<span class='artistName'>" . $songArtist->getName() . "</span>
 					</div>
 					<div class='trackOptions'>
-						<img class='optionsButton' src='assets/images/icons/more.png'>
+						<input type='hidden' class='songId' value='". $playlistSong->getId() ."'>
+						<img class='optionsButton' src='assets/images/icons/more.png' onClick='showOptionsMenu(this)'>
 					</div>
 					<div class='trackDuration'>
 						<span class='duration'>" . $playlistSong->getDuration() . "</span>
@@ -57,3 +58,10 @@ $owner = new User($con, $playlist->getOwner());
 		</script>
 	</ul>
 </div>
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+	<div class="item">Copy to clickboard</div>
+	<div class="item">Share</div>
+</nav>
