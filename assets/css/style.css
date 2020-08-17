@@ -224,10 +224,10 @@ body {
 .gridViewItem {
     display: inline-block;
     margin-right: 20px;
-    margin-bottom: 20px;
     width: 29%;
     max-width: 200px;
     min-width: 150px;
+    margin-bottom: 20px;
 }
 
 .gridViewItem img {
@@ -433,4 +433,9 @@ input:focus {
 
 .playlistsContainer {
     padding: 10px 0;
+}
+
+.playlistImage {
+    border: 3px solid #282828;
+    padding: 10px;
 }
