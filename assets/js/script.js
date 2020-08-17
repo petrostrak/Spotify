@@ -10,18 +10,18 @@ var userLoggedIn;
 var timer;
 
 function openPage(url) {
-    if(timer != null) {
-        clearTimeout(timer)
-    }
+	if(timer != null) {
+		clearTimeout(timer);
+	}
 
-    if(url.indexOf("?") == -1) { // -1 means that the search returns false (didn't find a match) result
-        url = url + "?"
-    }
-    
-    var encodedUrl = encodeURI(url + "&userLoggedIn" + userLoggedIn)
-    $("#mainContent").load(encodedUrl)
-    $("body").scrollTop(0)
-    history.pushState(null, null, url)
+	if(url.indexOf("?") == -1) {
+		url = url + "?";
+	}
+	var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+	console.log(encodedUrl);
+	$("#mainContent").load(encodedUrl);
+	$("body").scrollTop(0);
+	history.pushState(null, null, url);
 }
 
 function createPlaylist() {
@@ -37,7 +37,7 @@ function createPlaylist() {
 			//do something when ajax returns
 			openPage("yourMusic.php");
 		});
-	}
+	}   
 }
 
 function formatTime(seconds) {
