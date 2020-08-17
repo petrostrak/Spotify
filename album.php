@@ -70,7 +70,7 @@ $artist = $album->getArtist();
 
 <nav class="optionsMenu">
 	<input type="hidden" class="songId">
-	<div class="item">Add to playlist</div>
+	<?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
 	<div class="item">Copy to clickboard</div>
 	<div class="item">Share</div>
 </nav>
