@@ -24,7 +24,7 @@
                             . $playlist->getName() .
                         "</div>
 			          </div>";
-	}
-?>
+	        }
+        ?>
     </div>
 </div>
