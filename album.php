@@ -52,7 +52,7 @@ $artist = $album->getArtist();
 					</div>
 
 					<div class='trackOptions'>
-						<img class='optionsButton' src='assets/images/icons/more.png'>
+						<img class='optionsButton' src='assets/images/icons/more.png' onClick='showOptionsMenu(this)'>
 					</div>
 					<div class='trackDuration'>
 						<span class='ducation'>". $albumSong->getDuration() ."</span>
