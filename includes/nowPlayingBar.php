@@ -145,13 +145,17 @@
             var track = JSON.parse(data)
             $(".trackName span").text(track.title)
             $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
-                var artist = JSON.parse(data)
-                $(".artistName span").text(artist.name)
-            })
-            $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
-                var album = JSON.parse(data)
-                $(".albumLink img").attr("src", album.artworkPath)
-            })
+			var artist = JSON.parse(data);
+			$(".artistName span").text(artist.name);
+			$(".artistName span").attr("onclick", "openPage('artist.php?id=" + artist.id + "')");
+		});
+
+		$.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+			var album = JSON.parse(data);
+			$(".albumLink img").attr("src", album.artworkPath);
+			$(".albumLink img").attr("onclick", "openPage('album.php?id=" + album.id + "')");
+			$(".trackName span").attr("onclick", "openPage('album.php?id=" + album.id + "')");
+		});
             audioElement.setTrack(track);
             
             if(play){
@@ -178,21 +182,21 @@
 
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
-        <div id="nowPlayingLeft">
-            <div class="content">
-                <span class="albumLink">
-                    <img class="albumArtwork" src="" alt="">
-                </span>
-                <div class="trackInfo">
-                    <span class="trackName">
-                        <span></span>
-                    </span>
-                    <span class="artistName">
-                        <span></span>
-                    </span>
-                </div>
-            </div>
-        </div>
+    <div id="nowPlayingLeft">
+			<div class="content">
+				<span class="albumLink">
+					<img role="link" tabindex="0" src="" class="albumArtwork">
+				</span>
+				<div class="trackInfo">
+					<span class="trackName">
+						<span role="link" tabindex="0"></span>
+					</span>
+					<span class="artistName">
+						<span role="link" tabindex="0"></span>
+					</span>
+				</div>
+			</div>
+		</div>
         <div id="nowPlayingCenter">
             <div class="content playerControls">
                 <div class="buttons">
